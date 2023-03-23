@@ -21,7 +21,7 @@ class AllProductsPage:
         self.__add_to_cart_button = self.page.locator('[type="button"]')
         self.__product_information = self.page.locator('[class="product-information"]')
         self.__add_to_cart_button_recommended = self.page.locator('[id="recommended-item-carousel"] [data-product-id="4"]')
-        self.__category_title_page = self.page.locator('[class*="padding-right"]>div>h2')
+        self.__category_title_page = self.page.locator('[class="features_items"] h2[class="title text-center"]')
         self.__men_category = self.page.locator('[href="#Men"]')
         self.__tshirt_subcategory = self.page.locator('[href="/category_products/3"]')
         self.__brand_on_the_left_side_bar = self.page.locator('[class="brands_products"]')
