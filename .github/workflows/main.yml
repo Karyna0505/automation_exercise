@@ -53,7 +53,7 @@ jobs:
             message_format: ${{ secrets.ALLURE_REPORT_AUTOMATION_EXERCISE }}
             notify_when: "success,failure"
           env:
-            SLACK_WEBHOOK_URL: ${{ secrets.MESSAGE_MONITORING_TO_SLACK }}
+            SLACK_WEBHOOK_URL: ${{ secrets.MESSAGE_MONITORING_TO_SLACK }}/${{ github.run_number }}
   
 
        
