@@ -44,6 +44,16 @@ jobs:
             PERSONAL_TOKEN: ${{ secrets.AUTOMATION_EXERCISE }}
             PUBLISH_BRANCH: gh-pages
             PUBLISH_DIR: allure-history
-
+            
+        - name: Report Status
+          if: always()
+          uses: ravsamhq/notify-slack-action@v1
+          with:
+            status: ${{ job.status }}
+            message_format: ${{ secrets.ALLURE_REPORT_AUTOMATION_EXERCISE }}
+            notify_when: "success,failure"
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.MESSAGE_MONITORING_TO_SLACK }}
+  
 
        
