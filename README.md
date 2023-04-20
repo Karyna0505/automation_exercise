@@ -11,13 +11,13 @@ Clone and checkout the github project:
     git clone https://github.com/Karyna0505/automation_exercise.git
 2.To install the Playwright library. Go to the terminal and execute inside the checked out folder, run the following command:
 
-   python -m pip install --upgrade pip
+    python -m pip install --upgrade pip
    
-   pip install pipenv
+    pip install pipenv
    
-   pipenv install --system
+    pipenv install --system
    
-   playwright install chromium
+    playwright install chromium
    
 3.Install Playwright and the browser of your choice. For example, to install Chromium:
 
