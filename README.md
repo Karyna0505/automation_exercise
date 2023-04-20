@@ -3,16 +3,6 @@
 This repository contains automated tests written in Python using the Playwright library for testing test cases at https://www.automationexercise.com/test_cases.
 The project uses Allure as a test result report, and Slack to automatically send test result notifications. The project is also configured to run tests in parallel on different browsers using CLI arguments and deploy test results to GitHub Pages using GitHub Actions.
 
-### Prerequisites
-Before running the tests, ensure that you have the following software installed on your machine:
-
-- Python 3.x
-- Node.js
-- Pytest
-- Playwright
-- Allure
-- GitHub account
-- Slack account
 ### Installation
 
 1.To run the tests, you need to install Python 3.x and the Playwright library.
