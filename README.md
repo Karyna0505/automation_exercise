@@ -12,8 +12,11 @@ Clone and checkout the github project:
 2.To install the Playwright library. Go to the terminal and execute inside the checked out folder, run the following command:
 
    python -m pip install --upgrade pip
+   
    pip install pipenv
+   
    pipenv install --system
+   
    playwright install chromium
    
 3.Install Playwright and the browser of your choice. For example, to install Chromium:
