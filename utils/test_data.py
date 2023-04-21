@@ -42,3 +42,5 @@ class Data:
 
     expiration_year = '2027'
 
+    URL = 'https://automationexercise.com'
+

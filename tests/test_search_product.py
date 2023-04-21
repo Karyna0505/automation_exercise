@@ -27,7 +27,7 @@ class TestSearchProduct:
         self.products_page.click_products_button()
 
         self.products_page.check_all_products_page_is_visible()
-        assert self.page.url == 'https://automationexercise.com/products'
+        assert self.page.url == f"{Data.URL}/products"
 
         self.search_product.set_data_in_search_field(Data.searchdata)
         self.search_product.click_search_button()

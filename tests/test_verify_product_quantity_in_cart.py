@@ -29,6 +29,8 @@ class TestQuantityInCart:
         self.products_page.increase_quantity_to_4()
         self.products_page.click_add_to_cart_button()
         self.cart_page.click_view_cart()
-        self.cart_page.verify_that_product_in_cart_page_with_exact_quantity()
+        quantity_element = self.cart_page.get_quantity_first_product()
+        quantity_text = quantity_element.inner_text()
+        assert quantity_text == '4'
         take_screenshot(self.page, "verify_product_quantity_in_cart")
 

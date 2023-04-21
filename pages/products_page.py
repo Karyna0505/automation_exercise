@@ -4,7 +4,6 @@ from playwright.sync_api import Page, expect
 class AllProductsPage:
 
     def __init__(self, page: Page):
-
         self.page = page
 
         self.__products_button = self.page.locator('[href="/products"]')
@@ -20,14 +19,14 @@ class AllProductsPage:
         self.__quantity_filed = self.page.locator('[id="quantity"]')
         self.__add_to_cart_button = self.page.locator('[type="button"]')
         self.__product_information = self.page.locator('[class="product-information"]')
-        self.__add_to_cart_button_recommended = self.page.locator('[id="recommended-item-carousel"] [data-product-id="4"]')
+        self.__add_to_cart_button_recommended = self.page.locator(
+            '[id="recommended-item-carousel"] [data-product-id="4"]')
         self.__category_title_page = self.page.locator('[class="features_items"] h2[class="title text-center"]')
         self.__men_category = self.page.locator('[href="#Men"]')
         self.__tshirt_subcategory = self.page.locator('[href="/category_products/3"]')
         self.__brand_on_the_left_side_bar = self.page.locator('[class="brands_products"]')
         self.__polo_brand = self.page.locator('[href="/brand_products/Polo"]')
         self.__biba_brand = self.page.locator('[href="/brand_products/Biba"]')
-
 
     def click_products_button(self) -> None:
         self.__products_button.click()
@@ -65,7 +64,7 @@ class AllProductsPage:
     def verify_that_category_page_is_displayed(self) -> None:
         self.__category_title_page.is_visible()
 
-    def click_subcategory_from_men_category(self)-> None:
+    def click_subcategory_from_men_category(self) -> None:
         self.__men_category.click()
         self.__tshirt_subcategory.click()
 
@@ -81,11 +80,5 @@ class AllProductsPage:
     def click_polo_brand(self) -> None:
         self.__polo_brand.click()
 
-    def click_biba_brand(self)-> None:
+    def click_biba_brand(self) -> None:
         self.__biba_brand.click()
-
-
-
-
-
-

@@ -25,7 +25,7 @@ class TestAddReviewOnProduct:
 
         self.products_page.click_products_button()
         self.products_page.check_all_products_page_is_visible()
-        assert self.page.url == 'https://automationexercise.com/products'
+        assert self.page.url == f"{Data.URL}/products"
         self.products_page.click_view_product_of_first_product()
         self.review_page.verify_write_review_title()
         self.review_page.set_name_email_review(Data.username, Data.email, Data.companyname)

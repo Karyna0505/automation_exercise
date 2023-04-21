@@ -3,6 +3,7 @@ import pytest
 from pages.home_page import HomePage
 from pages.products_page import AllProductsPage
 from utils.tools import take_screenshot
+from utils.test_data import Data
 
 
 class TestVerifyProductsPage:
@@ -23,10 +24,10 @@ class TestVerifyProductsPage:
         self.home_page.verify_that_home_page_is_visible()
         self.products_page.click_products_button()
         self.products_page.check_all_products_page_is_visible()
-        assert self.page.url == 'https://automationexercise.com/products'
+        assert self.page.url == f"{Data.URL}/products"
         self. products_page.check_product_list_is_visible()
         self.products_page.click_view_product_of_first_product()
-        assert self.page.url == 'https://automationexercise.com/product_details/1'
+        assert self.page.url == f"{Data.URL}/product_details/1"
         self.products_page.check_details_product_is_visible()
         take_screenshot(self.page, "products_page")
 

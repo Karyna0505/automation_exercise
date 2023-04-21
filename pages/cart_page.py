@@ -1,4 +1,5 @@
-from playwright.sync_api import Page, expect
+
+from playwright.sync_api import Page, expect, Locator, ElementHandle
 from utils.test_data import Data
 
 
@@ -30,6 +31,7 @@ class CartPage:
         self.__place_order_button = self.page.locator('[href="/payment"]')
         self.__delete_button = self.page.locator('[id="product-1"] [data-product-id="1"]')
 
+
     def hover_first_product(self) -> None:
         self.__first_product.hover()
 
@@ -49,20 +51,26 @@ class CartPage:
     def click_view_cart(self) -> None:
         self.__view_cart_link.click()
 
-    def verify_prices_quantity_and_total_price(self) -> None:
-        product1_price = float(self.__price_first_product.inner_text().replace('Rs. ', ''))
-        product1_quantity = int(self.__quantity_first_product.inner_text())
-        product1_total_price = float(self.__total_price_first_product.inner_text().replace('Rs. ', ''))
-        assert product1_total_price == product1_price * product1_quantity
+    def product1_price(self) -> float:
+        return float(self.__price_first_product.inner_text().replace('Rs. ', ''))
 
-        product2_price = float(self.__price_second_product.inner_text().replace('Rs. ', ''))
-        product2_quantity = int(self.__quantity_second_product.inner_text())
-        product2_total_price = float(self.__total_price_second_product.inner_text().replace('Rs. ', ''))
-        assert product2_total_price == product2_price * product2_quantity
+    def product1_quantity(self) -> int:
+        return int(self.__quantity_first_product.inner_text())
 
-    def verify_that_product_in_cart_page_with_exact_quantity(self) -> None:
-        quantity = self.__quantity_first_product.inner_text()
-        assert quantity == '4'
+    def product1_total_price(self) -> float:
+        return float(self.__total_price_first_product.inner_text().replace('Rs. ', ''))
+
+    def product2_price(self) -> float:
+        return float(self.__price_second_product.inner_text().replace('Rs. ', ''))
+
+    def product2_quantity(self) -> int:
+        return int(self.__quantity_second_product.inner_text())
+
+    def product2_total_price(self) -> float:
+        return float(self.__total_price_second_product.inner_text().replace('Rs. ', ''))
+
+    def get_quantity_first_product(self) -> Locator:
+        return self.__quantity_first_product
 
     def click_cart_button_on_header(self) -> None:
         self.__cart_button.click()
@@ -94,3 +102,15 @@ class CartPage:
 
     def verify_that_product_is_removed_from_the_cart(self) -> None:
         expect(self.__first_product_in_cart).not_to_be_visible()
+
+    def query_selector_all(self) -> list[ElementHandle]:
+        return self.page.query_selector_all('tbody>tr')
+
+    def get_delivery_address(self) -> Locator:
+        return self.page.locator('[id="address_delivery"]')
+
+    def get_billing_address_text(self) -> Locator:
+        return self.page.locator('[id="address_invoice"]')
+
+    def query_selector_all_products(self) -> list[ElementHandle]:
+        return self.page.query_selector_all('tr[id*="product-"]')

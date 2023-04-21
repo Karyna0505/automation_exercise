@@ -1,10 +1,9 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, Locator
 
 
 class PaymentPage:
 
     def __init__(self, page: Page):
-
         self.page = page
         self.__name_on_card_field = self.page.locator('[name="name_on_card"]')
         self.__card_number_field = self.page.locator('[name="card_number"]')
@@ -26,15 +25,11 @@ class PaymentPage:
     def click_pay_and_confirm_order_button(self) -> None:
         self.__pay_and_confirm_order_button.click()
 
-    def verify_success_message(self) -> None:
-        assert self.__success_message.inner_text() == 'Congratulations! Your order has been confirmed!'
+    def verify_success_message(self) -> Locator:
+        return self.__success_message
 
     def click_download_invoice_button(self) -> None:
         self.__download_invoice.click()
 
     def click_continue_button(self) -> None:
         self.__continue_button.click()
-
-
-
-

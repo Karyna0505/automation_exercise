@@ -31,9 +31,11 @@ class TestAddProductsInCart:
         self.cart_page.hover_second_page()
         self.cart_page.click_add_to_cart_button2()
         self.cart_page.click_view_cart()
-        assert len(self.page.query_selector_all('tbody>tr')) == 2
 
-        self.cart_page.verify_prices_quantity_and_total_price()
+        assert len(self.cart_page.query_selector_all()) == 2
 
+        assert self.cart_page.product1_total_price() == self.cart_page.product1_price() * self.cart_page.product1_quantity()
+
+        assert self.cart_page.product2_total_price() == self.cart_page.product2_price() * self.cart_page.product2_quantity()
         take_screenshot(self.page, "add_product_in_cart")
 

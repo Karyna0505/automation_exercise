@@ -27,6 +27,6 @@ class TestRecommendedItems:
         self.home_page.verify_recommended_items_is_visible()
         self.products_page.click_add_to_cart_button_recommended()
         self.cart_page.click_view_cart()
-        assert len(self.page.query_selector_all('tbody>tr')) == 1
+        assert len(self.cart_page.query_selector_all()) == 1
 
         take_screenshot(self.page, "add_to_cart_from_recommended")

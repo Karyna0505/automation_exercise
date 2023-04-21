@@ -1,19 +1,11 @@
 import pytest
-import random
-import string
+
 from pages.home_page import HomePage
 from pages.signup_login_page import SignupLoginPage
 from pages.signup_form_page import SignupFormPage
 from pages.personal_profile_page import PersonalProfilePage
 from utils.test_data import Data
-from utils.tools import take_screenshot
-
-
-def generate_random_email():
-    letters = string.ascii_lowercase
-    email = ''.join(random.choice(letters) for i in range(10))
-    email += '@example.com'
-    return email
+from utils.tools import take_screenshot, generate_random_email
 
 
 class TestRegisterUser:

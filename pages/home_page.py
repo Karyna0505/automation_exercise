@@ -14,11 +14,12 @@ class HomePage:
         self.__categories_on_left_side_bar = self.page.locator('[id="accordian"]')
         self.__women_category = self.page.locator('[href="#Women"]')
         self.__dress_subcategory = self.page.locator('[href="/category_products/1"]')
+        self.title_page = self.page.get_by_role("heading", name="AutomationExercise")
 
     def verify_that_home_page_is_visible(self) -> None:
         self.__home_link.wait_for(state='visible')
         expect(self.__home_link).to_be_visible()
-        expect(self.page.get_by_role("heading", name="AutomationExercise")).to_contain_text("AutomationExercise")
+        expect(self.title_page).to_contain_text("AutomationExercise")
 
     def click_signup_login_button(self) -> None:
         self.__signup_login_button.click()
