@@ -30,7 +30,7 @@ def new_page(playwright: Playwright, request):
         browser = playwright.webkit.launch(headless=headless)
     context = browser.new_context(viewport={'width': 1920, 'height': 1080})
     page = context.new_page()
-    page.goto(f'https://automationexercise.com')
+    page.goto(f'https://automationexercise.com', timeout=60000)
     yield page
     context.close()
 
